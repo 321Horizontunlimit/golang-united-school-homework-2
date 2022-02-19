@@ -33,3 +33,4 @@ func CalcSquare(sideLen float64, sidesNum sidesCount) float64 {
 }
 
 	 
+// comment
