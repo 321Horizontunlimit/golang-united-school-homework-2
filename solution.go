@@ -21,15 +21,26 @@ const(
 	SidesSquare sidesCount = iota
 )
 
+func squareCircle(radius float64) float64{
+	return math.Pi * math.Pow(radius, 2)
+}
+
+func squareTriangle(side float64) float64{
+	return (math.Sqrt(3) / 4) * math.Pow(side, 2)
+}
+
+func squareBox(side float64) float64{
+	return math.Pow(side, 2)
+}
+
+
 func CalcSquare(sideLen float64, sidesNum sidesCount) float64 {
-	var sq float64 = 0
 	switch sidesNum {
-	case SidesCircle: sq = math.Pi * math.Pow(sideLen, 2)
-	case SidesTriangle: sq = (math.Sqrt(3) / 4) * math.Pow(sideLen, 2)
-	case SidesSquare: sq = math.Pow(sideLen, 2)
+	case SidesCircle: return squareCircle(sideLen)
+	case SidesTriangle: return squareTriangle(sideLen)
+	case SidesSquare: return squareBox(sideLen)
 	default: return 0
 	}
-	return sq
 }
 
 	 
