@@ -8,5 +8,28 @@ package square
 // CalcSquare(10.0, SidesSquare)
 // CalcSquare(10.0, SidesCircle)
 
-func CalcSquare(sideLen float64, sidesNum #yourTypeNameHere#) float64 {
+import "math"
+
+
+type sidesCount int
+
+const(
+	SidesCircle sidesCount = iota
+	_
+	_
+	SidesTriangle sidesCount = iota
+	SidesSquare sidesCount = iota
+)
+
+func CalcSquare(sideLen float64, sidesNum sidesCount) float64 {
+	var sq float64 = 0
+	switch sidesNum {
+	case SidesCircle: sq = math.Pi * math.Pow(sideLen, 2)
+	case SidesTriangle: sq = (math.Sqrt(3) / 4) * math.Pow(sideLen, 2)
+	case SidesSquare: sq = math.Pow(sideLen, 2)
+	default: return 0
+	}
+	return sq
 }
+
+	 
